@@ -4,6 +4,9 @@
  */
 package pi_dev;
 
+import com.esprit.entities.commande;
+import com.esprit.services.Service_commande;
+
 /**
  *
  * @author wissem
@@ -14,7 +17,8 @@ public class PI_dev {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       //Service_commande c1 =new Service_commande();
+        //c1.ajouter(new commande("non_livre",1245,"test1","vente"));
     }
     
 }
