@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #153b62;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfficherBoutiqueController">
+   <children>
+      <Label layoutX="159.0" layoutY="43.0" text="LISTE DE NOS BOUTIQUES " textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="72.0" fitWidth="115.0" layoutX="466.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="476.0" layoutY="334.0" mnemonicParsing="false" onAction="#afficher" prefHeight="25.0" prefWidth="87.0" text="Afficher" textFill="#e38c2c">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="50.0" layoutY="108.0" text="ID_BOUTIQUE" textFill="#e38c2c" textOverrun="CLIP">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="150.0" text="LOCALISATION" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="193.0" text="SECTEUR" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="233.0" text="SURFACE" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="272.0" text="ETAT" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="312.0" text="DESCRIPTION" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbLocalisation" layoutX="220.0" layoutY="151.0" text="Label" />
+      <Label fx:id="lbSecteur" layoutX="220.0" layoutY="194.0" text="Label" />
+      <Label fx:id="lbSurface" layoutX="220.0" layoutY="234.0" text="Label" />
+      <Label fx:id="lbEtat" layoutX="220.0" layoutY="273.0" text="Label" />
+      <Label fx:id="lbDescription" layoutX="220.0" layoutY="313.0" text="Label" />
+      <TextField fx:id="tfid" layoutX="174.0" layoutY="105.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="431.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/fotor_2023-2-23_19_56_48.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
