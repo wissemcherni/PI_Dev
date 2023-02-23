@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -76,7 +77,7 @@ public class Service_profil_livreur implements IService<profil_livreur>{
             ResultSet result = pst.executeQuery();
             while(result.next()) {
                 list.add(new profil_livreur(result.getInt("id_livreur"), result.getString("secteur"), result.getString("volume"),
-                         result.getString("moy_livraisin")));
+                         result.getString("moy_livraison")));
             }
             System.out.println("profil livreur  récupérées !");
         } catch (SQLException ex) {
@@ -85,5 +86,58 @@ public class Service_profil_livreur implements IService<profil_livreur>{
         
         return list;
     }
+    
+   /*public int filtrerParSecteur(String secteur) {
+    int count = 0;
+    String req = "SELECT COUNT(*) FROM profil_livreur WHERE secteur = ?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, secteur);
+        ResultSet result = pst.executeQuery();
+        while(result.next()) {
+            count = result.getInt(1);
+        }
+        System.out.println(count + " livreur(s) trouvé(s) dans le secteur " + secteur + ".");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return count;
+}
+   
+   public profil_livreur chercher(int id_livreur) {
+    String req = "SELECT * FROM profil_livreur WHERE id_livreur=?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setInt(1, id_livreur);
+        ResultSet result = pst.executeQuery();
+        if (result.next()) {
+            String secteur = result.getString("secteur");
+            String volume = result.getString("volume");
+            String moy_livraison = result.getString("moy_livraison");
+            return new profil_livreur(secteur, volume, moy_livraison);
+        }
+        System.out.println("profil livreur non trouvé !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return null;
+}*/
+    
+  
+
+    public int countLivreurBySecteur(String secteur) {
+    List<profil_livreur> list = afficher();
+    return (int) list.stream()
+        .filter(pl -> pl.getSecteur().equalsIgnoreCase(secteur))
+        .count();
+}
+    public Optional<profil_livreur> rechercherParId(int id_livreur) {
+    List<profil_livreur> list = afficher();
+    return list.stream()
+        .filter(pl -> pl.getId_livreur() == id_livreur)
+        .findFirst();
+    
+}
+    
     
 }

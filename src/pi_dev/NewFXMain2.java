@@ -20,9 +20,14 @@ import javafx.stage.Stage;
  * @author wissem
  */
 public class NewFXMain2 extends Application {
-    
+
+    public static void close() {
+        current.close();
+    }
+    private static Stage current;
     @Override
     public void start(Stage primaryStage) throws IOException {
+        this.current = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../com/esprit/gui/FXML.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);

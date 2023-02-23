@@ -6,6 +6,7 @@ package com.esprit.services;
 
 import com.esprit.entities.commande;
 import com.esprit.utils.X_change2_data_source;
+import static java.lang.Character.getType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -87,6 +88,51 @@ public class Service_commande implements IService<commande>{
         
         return list;
     }
+    
+   public void afficherCommandesNonLivrees() {
+    
+    String req = "SELECT * FROM commande WHERE statut = ?";
+    
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, "non_livre");
+        ResultSet result = pst.executeQuery();
+        System.out.println("les commandes non encore livrés sont :");
+        while(result.next()) { 
+            String type = result.getString("type");
+            int id_depot = result.getInt("id_depot");
+            String emiteur = result.getString("emiteur");
+            System.out.println( " | ID dépôt : " + id_depot + " | Emetteur : " + emiteur+ " | type : " + type );
+        }
+            
+        
+        System.out.println("Commandes récupérées !");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    
+    
+}
+   
+   public void afficherParType(String type) {
+    String req = "SELECT statut, id_depot, emiteur FROM commande WHERE type=?";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, type);
+        ResultSet rs = pst.executeQuery();
+        System.out.println("les commande de type : " +type );
+        while (rs.next()) {
+            String statut = rs.getString("statut");
+            int id_depot = rs.getInt("id_depot");
+            String emiteur = rs.getString("emiteur");
+            System.out.println("Statut : " + statut + " | ID dépôt : " + id_depot + " | Emetteur : " + emiteur);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
+    
+    
     }
     
     

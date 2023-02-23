@@ -23,6 +23,11 @@ public class produit_echange {
     public produit_echange() {
     }
 
+    public produit_echange(int id) {
+        this.id = id;
+    }
+    
+
     public produit_echange(int id_produit, int id_commande, String type) {
         this.id_produit = id_produit;
         this.id_commande = id_commande;

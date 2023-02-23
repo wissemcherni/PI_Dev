@@ -1,0 +1,36 @@
+.background{
+    -fx-background-color:white;
+}
+.primary_btn{
+    -fx-background-color:orange;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-font-size:16;
+}
+.primary_btn:hover{
+    -fx-background-color:darkorange;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-font-size:12;
+}
+
+.secondary_btn{
+        -fx-background-color:#04284e;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-font-size:16;
+}
+.secondary_btn:hover{
+        -fx-background-color:black;
+    -fx-text-fill:orange;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+        -fx-font-size:16;
+
+}

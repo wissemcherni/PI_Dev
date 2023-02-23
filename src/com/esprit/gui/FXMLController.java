@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import pi_dev.NewFXMain2;
 
 /**
  * FXML Controller class
@@ -35,6 +36,10 @@ public class FXMLController implements Initializable {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Commande_View.fxml"));
             AnchorPane component = loader.load();
+            AnchorPane.setBottomAnchor(component, 0.0);
+            AnchorPane.setLeftAnchor(component, 0.0);
+            AnchorPane.setRightAnchor(component, 0.0);
+            AnchorPane.setTopAnchor(component, 0.0);
             menu.getChildren().setAll(component);
         }catch(Exception ignored){
             
@@ -50,7 +55,23 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
-    private void pageProfil_Livreur(ActionEvent event) {
+    private void pageProfil_Livreur(ActionEvent event) { 
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile_Livreur.fxml"));
+            AnchorPane component = loader.load();
+            AnchorPane.setBottomAnchor(component, 0.0);
+            AnchorPane.setLeftAnchor(component, 0.0);
+            AnchorPane.setRightAnchor(component, 0.0);
+            AnchorPane.setTopAnchor(component, 0.0);
+            menu.getChildren().setAll(component);
+        }catch(Exception ignored){
+            
+        }
+    }
+
+    @FXML
+    private void close(ActionEvent event) {
+        NewFXMain2.close();
     }
     
 }

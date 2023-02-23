@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="909.0" styleClass="background" stylesheets="@menuStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.FXMLController">
    <children>
+      <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="x-Change" textFill="ORANGE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <AnchorPane fx:id="menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -24,36 +35,36 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pageCommande" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="commande" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#pageCommande" prefHeight="100.0" prefWidth="200.0" styleClass="primary_btn" text="Commande" textFill="WHITE">
                            <font>
-                              <Font name="Book Antiqua Bold" size="21.0" />
+                              <Font name="Book Antiqua Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pageLivraison" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="livraison" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#pageLivraison" prefHeight="100.0" prefWidth="200.0" styleClass="primary_btn" text="Livraison" textFill="WHITE">
                            <font>
-                              <Font name="Book Antiqua Bold" size="21.0" />
+                              <Font name="Book Antiqua Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pageProduit_Echange" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="produit_echange" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#pageProduit_Echange" prefHeight="100.0" prefWidth="200.0" styleClass="primary_btn" text="Produit Echange" textFill="WHITE">
                            <font>
-                              <Font name="Book Antiqua Bold" size="21.0" />
+                              <Font name="Book Antiqua Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pageProfil_Livreur" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="profil_livreur" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#pageProfil_Livreur" prefHeight="100.0" prefWidth="200.0" styleClass="primary_btn" text="Profile Livreur" textFill="WHITE">
                            <font>
-                              <Font name="Book Antiqua Bold" size="21.0" />
+                              <Font name="Book Antiqua Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
@@ -62,5 +73,10 @@
             </GridPane>
          </children>
       </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#close" styleClass="secondary_btn" text="x" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Black" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

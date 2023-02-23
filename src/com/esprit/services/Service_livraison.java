@@ -4,6 +4,7 @@
  */
 package com.esprit.services;
 
+import com.esprit.entities.commande;
 import com.esprit.entities.livraison;
 import com.esprit.entities.profil_livreur;
 import com.esprit.utils.X_change2_data_source;
@@ -27,7 +28,7 @@ public class Service_livraison implements IService<livraison>{
         try {
             //Statement st = cnx.createStatement();
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, l.getId_commande());
+            pst.setInt(1, l.getCommande().getId_commande());
             pst.setInt(2, l.getId_livreur());
             pst.setDate(3, l.getDATE());
             pst.executeUpdate();
@@ -43,7 +44,7 @@ public class Service_livraison implements IService<livraison>{
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             pst.setInt(4, l.getId());
-            pst.setInt(1, l.getId_commande());
+            pst.setObject(1, l.getCommande());
             pst.setInt(2, l.getId_livreur());
             pst.setDate(3, l.getDATE());
             pst.executeUpdate();
@@ -75,7 +76,8 @@ public class Service_livraison implements IService<livraison>{
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
             while(result.next()) {
-                list.add(new livraison(result.getInt("id"),result.getInt("id_commande"), result.getInt("id_livreur"), result.getDate("date")));
+                 commande commande = new commande(result.getInt("id_commande"));
+                list.add(new livraison(result.getInt("id"), commande, result.getInt("id_livreur"), result.getDate("date")));
             }
             System.out.println("livraison  récupérées !");
         } catch (SQLException ex) {

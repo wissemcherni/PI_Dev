@@ -1,0 +1,85 @@
+.background{
+    -fx-background-color:white;
+}
+.primary_btn{
+    -fx-background-color:orange;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-font-size:16;
+}
+.primary_btn:hover{
+    -fx-background-color:darkorange;
+        -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-font-size:16;
+}
+.secondary_btn{
+        -fx-background-color:#04284e;
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+}
+.secondary_btn:hover{
+        -fx-background-color:black;
+    -fx-text-fill:orange;
+}
+.combo-box{
+         -fx-cursor:hand;
+
+}
+.combo-box .list-cell 
+{
+    -fx-background-color: whitesmoke;
+    -fx-text-fill: orange;
+     -fx-cursor:hand;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+
+}
+
+.combo-box-popup .list-view 
+{
+    -fx-background-color: whitesmoke;         -fx-cursor:hand;
+
+}    
+
+.combo-box-popup .list-view .list-cell 
+{
+    -fx-background-color: whitesmoke;         -fx-cursor:hand;
+
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover 
+{
+    -fx-background-color: whitesmoke;
+    -fx-text-fill: orange;
+             -fx-cursor:hand;
+
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover 
+{
+    -fx-background-color: whitesmoke;
+    -fx-text-fill: orange;
+}
+
+.combo-box-base{
+    -fx-color:orange;
+}
+
+.combo-box-base:hover
+{
+    -fx-color: #04284e;
+}
+
+.combo-box-base:showing 
+{
+    -fx-background-color:#04284e;
+}
+
+.combo-box-base:focused {
+    -fx-background-color:#04284e;
+}

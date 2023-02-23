@@ -4,6 +4,7 @@
  */
 package com.esprit.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,11 @@ public class profil_livreur {
 
     public profil_livreur() {
     }
+
+    public profil_livreur(int id_livreur) {
+        this.id_livreur = id_livreur;
+    }
+    
 
     public profil_livreur(String secteur, String volume, String moy_livraison) {
         this.secteur = secteur;
@@ -102,6 +108,7 @@ public class profil_livreur {
     public String toString() {
         return "profil_livreur{" + "id_livreur=" + id_livreur + ", secteur=" + secteur + ", volume=" + volume + ", moy_livraison=" + moy_livraison + '}';
     }
+    
     
     
 }

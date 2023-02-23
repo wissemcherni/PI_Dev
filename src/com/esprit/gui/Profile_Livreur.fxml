@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="909.0" styleClass="background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.Commande_ViewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="909.0" styleClass="background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.Profile_LivreurController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
@@ -25,13 +25,12 @@
             <RowConstraints minHeight="10.0" percentHeight="90.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ListView fx:id="liste_commandes" onMouseClicked="#edit" prefHeight="400.0" prefWidth="405.0" GridPane.rowIndex="1" />
+            <ListView fx:id="liste_profil" onMouseClicked="#edit" prefHeight="400.0" prefWidth="405.0" GridPane.rowIndex="1" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ComboBox fx:id="status" prefWidth="150.0" promptText="Status" />
-                  <TextField fx:id="id_depot" alignment="CENTER" promptText="ID depot" />
-                  <TextField fx:id="emiteur" alignment="CENTER" promptText="Emiteur" />
-                  <ComboBox fx:id="type" prefWidth="150.0" promptText="Type" />
+                  <TextField fx:id="secteur" alignment="CENTER" promptText="Secteur" />
+                  <TextField fx:id="volume" alignment="CENTER" promptText="Volume" />
+                  <TextField fx:id="moyen" alignment="CENTER" layoutX="20.0" layoutY="64.0" promptText="Moyen Livraison" />
                   <Button fx:id="_btn_" mnemonicParsing="false" onAction="#ajouter" prefHeight="29.0" prefWidth="119.0" styleClass="primary_btn" text="Ajouter" />
                   <Button fx:id="_delete_" mnemonicParsing="false" onAction="#supprimer" prefHeight="29.0" prefWidth="115.0" styleClass="secondary_btn" text="Supprimer" visible="false" />
                </children>
@@ -49,8 +48,8 @@
                               <Font name="Book Antiqua" size="15.0" />
                            </font>
                         </TextField>
-                        <ComboBox fx:id="type_filter" prefHeight="29.0" prefWidth="222.0" promptText="Filter Type" />
-                        <ComboBox fx:id="status_filtre" layoutX="266.0" layoutY="16.0" prefHeight="29.0" prefWidth="222.0" promptText="Filter Status" />
+                        <ComboBox fx:id="secteur_filter" prefHeight="29.0" prefWidth="27.0" promptText="Filter Secteur" visible="false" />
+                        <ComboBox fx:id="filter_volume" layoutX="266.0" layoutY="16.0" prefHeight="29.0" prefWidth="222.0" promptText="Filter Volume" />
                         <Button mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="151.0" styleClass="primary_btn" text="reset" />
                      </children>
                   </HBox>

@@ -11,11 +11,20 @@ import java.util.Objects;
  * @author wissem
  */
 public class commande {
+
+    
     private int id_commande ;
     private String statut;
     private int id_depot ;
     private String emiteur ;
     private String type ;
+    private livraison livraison;
+    
+    
+
+    public commande(int aInt) {
+        this.id_commande = aInt;
+    }
        
    private enum statut{
         livre,non_livre;
@@ -83,6 +92,15 @@ public class commande {
         this.type = type;
     }
 
+    public livraison getLivraison() {
+        return livraison;
+    }
+
+    public void setLivraison(livraison livraison) {
+        this.livraison = livraison;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 3;
