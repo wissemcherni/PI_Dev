@@ -20,6 +20,15 @@ public class Boutique {
     private String etat;
     private String descriptionb;
 
+    public Boutique(int surface, String localisation, String secteur, String etat, String descriptionb) {
+        this.surface = surface;
+        this.localisation = localisation;
+        this.secteur = secteur;
+        this.etat = etat;
+        this.descriptionb = descriptionb;
+    }
+    
+
     public Boutique(String localisation, String secteur, String etat, String descriptionb) {
         this.localisation = localisation;
         this.secteur = secteur;

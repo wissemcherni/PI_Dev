@@ -8,34 +8,83 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #153b62;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #153b62;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CathegorieController">
    <children>
-      <Label layoutX="180.0" layoutY="31.0" text="Ajouter Cathegorie" textFill="#e38c2c">
+      <Label layoutX="204.0" layoutY="31.0" text="Categorie" textFill="#e38c2c">
          <font>
             <Font name="Comic Sans MS" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="186.0" text="type" textFill="#e38c2c">
+      <Label layoutX="28.0" layoutY="103.0" prefHeight="25.0" prefWidth="39.0" text="type" textFill="#e38c2c">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="21.0" />
+            <Font name="Comic Sans MS Bold Italic" size="9.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="255.0" text="DESCRIPTION" textFill="#e38c2c">
+      <Label layoutX="14.0" layoutY="166.0" prefHeight="0.0" prefWidth="51.0" text="DESCRIPTION" textFill="#e38c2c">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+            <Font name="Comic Sans MS Bold Italic" size="7.0" />
          </font>
       </Label>
-      <TextField fx:id="tfdescription" layoutX="158.0" layoutY="255.0" />
-      <Button layoutX="435.0" layoutY="341.0" mnemonicParsing="false" onAction="#ajouterCathegorie" prefHeight="25.0" prefWidth="87.0" text="Ajouter" textFill="#e38c2c">
+      <TextField fx:id="ajdescription" layoutX="70.0" layoutY="159.0" prefHeight="25.0" prefWidth="79.0" />
+      <Button layoutX="168.0" layoutY="128.0" mnemonicParsing="false" onAction="#ajouterCathegorie" prefHeight="25.0" prefWidth="87.0" text="Ajouter" textFill="#e38c2c">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="tfsecteur" layoutX="158.0" layoutY="185.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="391.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="ajtype" layoutX="62.0" layoutY="103.0" prefHeight="4.0" prefWidth="87.0" />
+      <ImageView fitHeight="68.0" fitWidth="87.0" layoutX="502.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Downloads/kisspng-shopping-cart-computer-icons-white-cart-png-simple-5ab15d036a4b75.3538919915215731234354.png" />
          </image>
       </ImageView>
+      <Label layoutX="43.0" layoutY="258.0" prefHeight="25.0" prefWidth="39.0" text="type" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="321.0" prefHeight="0.0" prefWidth="51.0" text="DESCRIPTION" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="7.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mddescription" layoutX="85.0" layoutY="314.0" prefHeight="25.0" prefWidth="79.0" />
+      <Button layoutX="183.0" layoutY="283.0" mnemonicParsing="false" onAction="#modifierCathegorie" prefHeight="25.0" prefWidth="87.0" text="modifier" textFill="#e38c2c">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="mdtype" layoutX="77.0" layoutY="258.0" prefHeight="4.0" prefWidth="87.0" />
+      <TextField fx:id="id" layoutX="433.0" layoutY="103.0" prefHeight="17.0" prefWidth="110.0" />
+      <Label layoutX="352.0" layoutY="107.0" text="séléctionner id " textFill="#f5f3f3" />
+      <Label layoutX="380.0" layoutY="148.0" prefHeight="25.0" prefWidth="39.0" text="type" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="211.0" prefHeight="0.0" prefWidth="51.0" text="DESCRIPTION" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="7.0" />
+         </font>
+      </Label>
+      <Label fx:id="aftype" layoutX="476.0" layoutY="148.0" prefHeight="25.0" prefWidth="39.0" text="type" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="9.0" />
+         </font>
+      </Label>
+      <Label fx:id="afdescription" layoutX="462.0" layoutY="211.0" prefHeight="0.0" prefWidth="51.0" text="DESCRIPTION" textFill="#e38c2c">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="7.0" />
+         </font>
+      </Label>
+      <Button layoutX="452.0" layoutY="327.0" mnemonicParsing="false" onAction="#SupprimerCathegorie" prefHeight="25.0" prefWidth="87.0" text="supprimer" textFill="#e38c2c">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="400.0" layoutY="246.0" mnemonicParsing="false" onAction="#afficherCathegorie" prefHeight="25.0" prefWidth="87.0" text="afficher" textFill="#e38c2c">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

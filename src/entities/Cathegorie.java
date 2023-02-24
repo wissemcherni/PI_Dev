@@ -20,6 +20,11 @@ public class Cathegorie {
         return descriptionc;
     }
 
+    public Cathegorie(String type, String descriptionc) {
+        this.type = type;
+        this.descriptionc = descriptionc;
+    }
+
     public Cathegorie(int id, String type, String descriptionc) {
         this.id = id;
         this.type = type;

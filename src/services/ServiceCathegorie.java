@@ -6,6 +6,7 @@ package services;
 
 import entities.Cathegorie;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -45,7 +46,7 @@ public class ServiceCathegorie implements IService<Cathegorie> {
         }
     }
 
-    @Override
+    
     public void supprimer(Cathegorie p) {
         String req = "DELETE FROM Cathegorie WHERE id="+p.getId();
         try {
@@ -75,6 +76,26 @@ public class ServiceCathegorie implements IService<Cathegorie> {
         }
         
         return list;
+    }
+
+    @Override
+    public Cathegorie rechercher(int p) {
+        try{
+            PreparedStatement ps = cnx.prepareStatement("select * from cathegorie where id = ?");
+            ps.setInt(1,p);
+            ResultSet result = ps.executeQuery();
+            if(result.next()){
+                return new Cathegorie(result.getInt("id"), result.getString("type"), result.getString("descriptionc"));
+            }
+            return null;
+        }catch(Exception ignored){
+            return null;
+        }
+    }
+
+    @Override
+    public void supprimer(int p) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

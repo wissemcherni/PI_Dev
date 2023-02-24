@@ -23,7 +23,8 @@ public class ServiceBoutique implements IService<Boutique> {
 
     @Override
     public void ajouter(Boutique p) {
-        String req = "INSERT INTO Boutique (surface, localisation) VALUES('"+p.getSurface()+"', '"+p.getLocalisation()+"' , '"+p.getSecteur()+"', '"+p.getEtat()+"', '"+p.getDescriptionb()+"');";
+         System.out.println("aaaaa");
+        String req = "INSERT INTO `Boutique` (`surface`, `localisation`, `secteur`, `etat`, `descriptionb`) VALUES('"+p.getSurface()+"', '"+p.getLocalisation()+"' , '"+p.getSecteur()+"', '"+p.getEtat()+"', '"+p.getDescriptionb()+"');";
         try {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
@@ -46,8 +47,8 @@ public class ServiceBoutique implements IService<Boutique> {
     }
 
     @Override
-    public void supprimer(Boutique p) {
-        String req = "DELETE FROM Boutique WHERE id="+p.getId();
+    public void supprimer(int p) {
+        String req = "DELETE FROM Boutique WHERE id='"+p+"'";
         try {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
@@ -76,7 +77,24 @@ public class ServiceBoutique implements IService<Boutique> {
         
         return list;
     }
-}
 
+    @Override
+    public Boutique rechercher(int p) {
+       Boutique b=null ;
     
-
+        String req = "SELECT * FROM Boutique WHERE `id` ='"+ p+"' ;";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet result = st.executeQuery(req);
+            while(result.next()) {
+                b=(new Boutique(result.getInt("id"), result.getInt("surface"), result.getString("localisation"), result.getString("secteur"), result.getString("etat"), result.getString("descriptionb")));
+               
+            }
+            System.out.println("Boutique récupérées !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return b;
+    
+    }}

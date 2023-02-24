@@ -3,16 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AjoutBoutiqueController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/utils/DataSource.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/services/IService.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/ModifierBoutique.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AjouterCathegorie.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/ModifierBoutiqueController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/services/ServiceCathegorie.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/CathegorieController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/gestion_boutiquee/mainGUI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/entities/Cathegorie.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AjoutBoutiqueController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/services/IService.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AfficherBoutique.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AjoutBoutique.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/services/ServiceBoutique.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/gestion_boutiquee/Gestion_boutique.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/entities/Boutique.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/entities/Cathegorie.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/gestion_boutiquee/mainGUI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/FXMLController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/gestion_boutiquee/src/controller/AfficherBoutiqueController.java</file>
         </group>
     </open-files>
 </project-private>

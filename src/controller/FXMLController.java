@@ -29,17 +29,25 @@ import services.ServiceBoutique;
 public class FXMLController implements Initializable {
 
   
+    @FXML
     private TextField tflocalisation;
+    @FXML
     private TextField tfsurface;
+    @FXML
     private TextField tfdescription;
-    private RadioButton tfetat;
+    @FXML
+    private TextField tfetat;
+    @FXML
     private TextField tfsecteur;
-    @FXML
     private Label lbType;
-    @FXML
     private TextField tfid;
-    @FXML
     private TextArea lbDescription;
+
+    @Override
+    public String toString() {
+        return "FXMLController{" + "tflocalisation=" + tflocalisation + ", tfsurface=" + tfsurface + ", tfdescription=" + tfdescription + ", tfetat=" + tfetat + ", tfsecteur=" + tfsecteur + ", lbType=" + lbType + ", tfid=" + tfid + ", lbDescription=" + lbDescription + '}';
+    }
+    
 
     /**
      * Initializes the controller class.
@@ -49,9 +57,10 @@ public class FXMLController implements Initializable {
         // TODO
     }    
 
+    @FXML
     private void ajouter(ActionEvent event) throws IOException {
         ServiceBoutique sp = new ServiceBoutique();
-        sp.ajouter(new Boutique(tfsurface.getInteger(),tflocalisation.getText(),tfsecteur.getText(),tfetat.getText() ,tfdescription.getText() ));
+        sp.ajouter(new Boutique(Integer.valueOf(tfsurface.getText()),tflocalisation.getText(),tfsecteur.getText(),tfetat.getText() ,tfdescription.getText() ));
         JOptionPane.showMessageDialog(null, "Boutique ajoutée !");
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoutique.fxml"));
@@ -59,15 +68,15 @@ public class FXMLController implements Initializable {
         tfsecteur.getScene().setRoot(root);
         
         AfficherBoutiqueController dpc = loader.getController();
+        
         dpc.setLbLocalisation(tflocalisation.getText());
         dpc.setLbSecteur(tfsecteur.getText());
         dpc.setLbEtat(tfetat.getText());
         dpc.setLbDescription(tfdescription.getText());
+        dpc.setLbSurface(tfsurface.getText());
         
     }
 
-    @FXML
-    private void afficherCathegorie(ActionEvent event) {
-    }
+
     }
     
