@@ -28,6 +28,12 @@ public class Gestion_boutique {
         ServiceCathegorie sc1 = new ServiceCathegorie();
         sb1.supprimer(new Boutique(1));
         System.out.println(sb1.afficher());
+sc1.ajouter(new Cathegorie(4,"meubles"));
+        sc1.ajouter(new Cathegorie(4,"hwayeej"));
+        sc1.ajouter(new Cathegorie(4,"accessoires"));
+        sb1.modifier(new Boutique(1, 25,"ahmed"));
+
+        
         
         sc1.modifier(new Cathegorie(1,"meublembadlaa"));
 
