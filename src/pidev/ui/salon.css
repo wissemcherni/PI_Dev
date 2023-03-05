@@ -1,0 +1,16 @@
+.backgroud{
+    -fx-background-color: whitesmoke;
+}
+.btn{
+    -fx-background-color:orange;
+    -fx-text-fill:white;
+    -fx-font-family:"Book Antiqua";
+    -fx-font-weight:bold;
+    -fx-cursor: hand;
+}
+.btn:hover{
+    -fx-background-color:darkorange;
+}
+.btn:hover{
+    -fx-background-color:darkorange;
+}
