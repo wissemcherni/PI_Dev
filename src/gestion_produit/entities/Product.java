@@ -115,4 +115,6 @@ public class Product {
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+ 
 }

@@ -80,15 +80,12 @@ public class Sub_Category_Service implements IService<Sub_Category> {
     @Override
     public Sub_Category MODIFY(Sub_Category sub_category){
         try{
-            PreparedStatement ps = cnx.prepareStatement("UPDATE SUB_CATEGORY SET NAME = ? CATEGORY_ID = ? WHERE ID=?");
-            sub_category.setId(UUID.randomUUID().toString());
+            PreparedStatement ps = cnx.prepareStatement("UPDATE SUB_CATEGORY SET NAME = ?, CATEGORY_ID = ? WHERE ID=?");
             ps.setString(1,sub_category.getName());
             ps.setString(2,sub_category.getCategory_id());
             ps.setString(3,sub_category.getId());
-            if(ps.execute()){
-                return sub_category;
-            }
-            return null;
+            ps.executeUpdate();
+            return sub_category;
         }catch (Exception ignored){
             return null;
         }
@@ -98,7 +95,8 @@ public class Sub_Category_Service implements IService<Sub_Category> {
         try{
             PreparedStatement ps = cnx.prepareStatement("DELETE FROM SUB_CATEGORY WHERE ID = ?");
             ps.setString(1,sub_category.getId());
-            return ps.execute();
+            ps.executeUpdate();
+            return true;
         }catch (Exception ignored){
             return false;
         }

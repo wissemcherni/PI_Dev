@@ -49,6 +49,23 @@ public class Product_Service implements IService<Product> {
             return null;
         }
     }
+    
+    public Product READONE2(String searchStr){
+    try{
+        PreparedStatement ps = cnx.prepareStatement("SELECT * FROM PRODUCT WHERE name LIKE ? OR description LIKE ?");
+        ps.setString(1,"%" + searchStr + "%"); // match search string against product name
+        ps.setString(2,"%" + searchStr + "%"); // match search string against product description
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            return new Product(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8));
+        }
+        return null;
+    }catch (Exception ignored){
+        return null;
+    }
+}
+
+    
     public HashMap<Integer,Product> READALL(Sub_Category sub_category){
         try{
             PreparedStatement ps = cnx.prepareStatement("SELECT * FROM PRODUCT WHERE SUB_CATEGORY_ID = ?");
@@ -125,4 +142,6 @@ public class Product_Service implements IService<Product> {
 //            return null;
 //        }
 //    }
+
+    
 }

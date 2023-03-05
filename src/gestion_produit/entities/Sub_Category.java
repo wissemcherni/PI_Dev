@@ -1,11 +1,38 @@
 package gestion_produit.entities;
 
 import gestion_produit.services.Category_Service;
+import java.util.Objects;
 
 public class Sub_Category {
     private String id;
+
+    @Override
+    public String toString() {
+        return name ;
+    }
     private String name;
     private String category_id;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Sub_Category other = (Sub_Category) obj;
+        return Objects.equals(this.id, other.id);
+    }
 
 
     public Sub_Category() {

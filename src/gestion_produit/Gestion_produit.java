@@ -59,12 +59,17 @@ public class Gestion_produit {
    
        System.out.println(" afficher produit");
    System.out.println(new Product_Service().READALL());
-   System.out.println("*****************************************************");
+   
+   
+   System.out.println(" /////////////recherche produit par name/////////////////////////////////");
+   System.out.println(new Product_Service().READONE2("ddd"));
+   /*System.out.println("*****************************************************");
    System.out.println(" afficher category");
     System.out.println("*****************************************************");
    System.out.println(new Category_Service().READALL());
    System.out.println(" sub category");
     System.out.println("*****************************************************");
+   */
        
             
             
