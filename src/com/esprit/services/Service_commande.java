@@ -6,6 +6,18 @@ package com.esprit.services;
 
 import com.esprit.entities.commande;
 import com.esprit.utils.X_change2_data_source;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
+import java.awt.Desktop;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import static java.lang.Character.getType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +25,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -131,6 +144,82 @@ public class Service_commande implements IService<commande>{
         System.out.println(ex.getMessage());
     }
 }
+   
+   public void imprimer(commande c) throws BadElementException, IOException, DocumentException{
+        //commande c =liste_commandes.getSelectionModel().getSelectedItem();
+        //Service_commande c = new Service_commande();
+        
+        
+        
+        //File folder1 = new File("documents"); 
+        File folder = new File("documents"); 
+        if(!folder.exists()){
+            folder.mkdir();
+        }
+        String nom_fichier = "documents/info.pdf"; 
+        
+       
+        
+        File imgUser = new File("images/user.jpg");
+        //File imgUser = new File("images/user.jpg"); 
+        String chemin = imgUser.getAbsolutePath(); 
+        
+        
+        LineSeparator ls = new LineSeparator(); 
+        ls.setLineColor(BaseColor.YELLOW);
+        
+        Image image = null; 
+         
+        Document document = new Document(); 
+        
+   
+        
+       
+            
+            PdfWriter.getInstance(document, new FileOutputStream(nom_fichier));
+            document.open(); 
+            document.addTitle("bon de commande "); 
+            document.addAuthor("author"); 
+            Paragraph preface = new Paragraph(); 
+            Paragraph titre = new Paragraph("bon de commande");
+           
+            
+            preface.add(titre);
+            preface.add(new Paragraph("Description of user : "));
+            preface.add(new Paragraph(c.getId_commande()));
+            preface.add(new Paragraph(c.getId_depot()));
+            
+            preface.add(new Paragraph(c.getStatut()));
+           
+            preface.add(new Paragraph(c.getEmiteur()));
+            preface.add(new Paragraph(c.getType()));
+            
+            document.add(preface); 
+
+            document.close(); 
+            
+          
+            
+            int valid = JOptionPane.showOptionDialog(
+                null, 
+                new Object[]{
+                    "Voulez vous directement ouvrir le fichier ?",
+                        
+                        "Cliquez OUI pour ouvrir ou NON pour annuler",
+                },
+                "ouverture du fichier"+nom_fichier, 
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE, 
+                null, null, "OK"
+               
+            );
+            if(valid == JOptionPane.OK_OPTION){
+                File ouvrir = new File(nom_fichier); 
+                Desktop desk = Desktop.getDesktop();
+                desk.open(ouvrir);
+            }
+           
+        } 
     
     
     }

@@ -5,6 +5,7 @@
 package com.esprit.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -13,25 +14,27 @@ import java.util.Objects;
  */
 public class livraison {
    private int id ;
-    private commande commande ;
+    public commande commande ;
     private int id_livreur ;
-    private Date DATE ;
+    private LocalDate DATE ;
     
     public livraison() {
     }
 
-    public livraison( commande commande, int id_livreur, Date DATE) {
+    public livraison( commande commande, int id_livreur, LocalDate DATE) {
         this.commande = commande;
         this.id_livreur = id_livreur;
         this.DATE = DATE;
     }
 
-    public livraison(int id, commande commande, int id_livreur, Date DATE) {
+    public livraison(int id, commande commande, int id_livreur, LocalDate DATE) {
         this.id = id;
         this.commande = commande;
         this.id_livreur = id_livreur;
         this.DATE = DATE;
     }
+
+    
 
     public commande getCommande() {
         return commande;
@@ -51,7 +54,7 @@ public class livraison {
         return id_livreur;
     }
 
-    public Date getDATE() {
+    public LocalDate getDATE() {
         return DATE;
     }
 
@@ -65,7 +68,7 @@ public class livraison {
         this.id_livreur = id_livreur;
     }
 
-    public void setDATE(Date DATE) {
+    public void setDATE(LocalDate DATE) {
         this.DATE = DATE;
     }
 //

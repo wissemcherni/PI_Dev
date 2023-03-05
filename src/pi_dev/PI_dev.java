@@ -43,7 +43,7 @@ public class PI_dev {
         Service_livraison sl2=new Service_livraison();
        String str="2023-04-21";  
        Date date=Date.valueOf(str);//converting string into sql date   
-        sl2.ajouter(new livraison(new commande(2),132145,date));
+        //sl2.ajouter(new livraison(new commande(2),132145,date));
        
     //Service_profil_livreur service = new Service_profil_livreur();
     //String secteur = "megrine";

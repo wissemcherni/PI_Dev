@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
+import java.awt.TrayIcon.MessageType;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,18 +77,17 @@ public class Profile_LivreurController implements Initializable {
        });
         List<String> volumes = new ArrayList();
         volumes.add(">10");
-        volumes.add(">20");
-        volumes.add(">30");
-        volumes.add(">40");
         volumes.add(">50");
-        volumes.add(">60");
-        volumes.add(">70");
-        volumes.add(">80");
-        volumes.add(">90");
         volumes.add(">100");
+        volumes.add(">500");
+        volumes.add(">1000");
+        
+       
+        
+        
+        
          List<String> statuss = new ArrayList();
-        statuss.add("livre");
-        statuss.add("non_livre");
+        
         filter_volume.getItems().setAll(volumes);
         secteur_filter.getItems().setAll(statuss);
         liste_profil.getItems().setAll(new Service_profil_livreur().afficher());
@@ -108,6 +108,18 @@ public class Profile_LivreurController implements Initializable {
     }    
     @FXML
     private void ajouter() throws AWTException {
+        if (secteur.getText().isEmpty()|| volume.getText().isEmpty()|| moyen.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"champs manquant");
+                
+                    }
+            else if (volume.getText().length() < 2 || volume.getText().length()>4){
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("The length of the volume must be between 2 and 4 character.");
+                    alert.showAndWait();
+                    volume.requestFocus();
+                    volume.selectAll();
+                } else {
         profil_livreur liv = new profil_livreur(secteur.getText(), volume.getText(), moyen.getText());
         new Service_profil_livreur().ajouter(liv);
         SystemTray tray = SystemTray.getSystemTray();
@@ -124,7 +136,7 @@ public class Profile_LivreurController implements Initializable {
                 trayIcon.setToolTip("System tray icon demo");
                 tray.add(trayIcon);
 
-                trayIcon.displayMessage("Notification ajout", "Profil ajoutée avec succès", TrayIcon.MessageType.INFO);
+                trayIcon.displayMessage("Notification ajout", "profil livreur ajoutée avec succès", MessageType.INFO);
         secteur.clear();
         volume.clear();
          moyen.clear();
@@ -132,6 +144,7 @@ public class Profile_LivreurController implements Initializable {
         liste_profil.getItems().setAll(new Service_profil_livreur().afficher());
             
           
+    }
     }
 
     @FXML

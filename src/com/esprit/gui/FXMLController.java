@@ -48,6 +48,17 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void pageLivraison(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("livraison.fxml"));
+            AnchorPane component = loader.load();
+            AnchorPane.setBottomAnchor(component, 0.0);
+            AnchorPane.setLeftAnchor(component, 0.0);
+            AnchorPane.setRightAnchor(component, 0.0);
+            AnchorPane.setTopAnchor(component, 0.0);
+            menu.getChildren().setAll(component);
+        }catch(Exception ignored){
+            
+        }
     }
 
     @FXML

@@ -30,7 +30,9 @@ public class Service_livraison implements IService<livraison>{
             PreparedStatement pst = cnx.prepareStatement(req);
             pst.setInt(1, l.getCommande().getId_commande());
             pst.setInt(2, l.getId_livreur());
-            pst.setDate(3, l.getDATE());
+            
+            java.sql.Date sqlDate = java.sql.Date.valueOf(l.getDATE());
+        pst.setDate(3, sqlDate);
             pst.executeUpdate();
             System.out.println("livraison  ajoutée !");
         } catch (SQLException ex) {
@@ -46,7 +48,8 @@ public class Service_livraison implements IService<livraison>{
             pst.setInt(4, l.getId());
             pst.setObject(1, l.getCommande());
             pst.setInt(2, l.getId_livreur());
-            pst.setDate(3, l.getDATE());
+            java.sql.Date sqlDate = java.sql.Date.valueOf(l.getDATE());
+        pst.setDate(3, sqlDate);
             pst.executeUpdate();
             System.out.println("livraison modifiée !");
         } catch (SQLException ex) {
@@ -71,13 +74,13 @@ public class Service_livraison implements IService<livraison>{
     public List<livraison> afficher() {
         List<livraison> list = new ArrayList<>();
         
-        String req = "SELECT * FROM livreur";
+        String req = "SELECT * FROM livraison";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
             while(result.next()) {
                  commande commande = new commande(result.getInt("id_commande"));
-                list.add(new livraison(result.getInt("id"), commande, result.getInt("id_livreur"), result.getDate("date")));
+                list.add(new livraison(result.getInt("id"), commande, result.getInt("id_livreur"), result.getDate("date").toLocalDate()));
             }
             System.out.println("livraison  récupérées !");
         } catch (SQLException ex) {
@@ -86,5 +89,7 @@ public class Service_livraison implements IService<livraison>{
         
         return list;
     }
+    
+    
 }
     

@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/entities/profil_livreur.java</file>
-            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/gui/Profile_Livreur.fxml</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/gui/LivraisonController.java</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/entities/commande.java</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/services/Service_livraison.java</file>
             <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/gui/Profile_LivreurController.java</file>
-            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/services/Service_profil_livreur.java</file>
-            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/gui/FXMLController.java</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/services/Service_commande.java</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/entities/livraison.java</file>
             <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/com/esprit/gui/Commande_ViewController.java</file>
+            <file>file:/C:/Users/wissem/Documents/NetBeansProjects/PI_dev/src/pi_dev/PI_dev.java</file>
         </group>
     </open-files>
 </project-private>

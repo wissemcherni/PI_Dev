@@ -6,12 +6,23 @@ package com.esprit.gui;
 
 import com.esprit.entities.commande;
 import com.esprit.services.Service_commande;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.awt.AWTException;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +40,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -105,8 +117,8 @@ public class Commande_ViewController implements Initializable {
         });
     }    
     @FXML
-    private void ajouter() throws AWTException {
-            if (status.getValue().isEmpty()|| emiteur.getText().isEmpty()|| type.getValue().isEmpty()){
+    private void ajouter() throws AWTException, IOException, DocumentException {
+            if (status.getValue().isEmpty()|| emiteur.getText().isEmpty() || type.getValue().isEmpty()){
                 JOptionPane.showMessageDialog(null,"champs manquant");
                 
                     }
@@ -141,7 +153,7 @@ public class Commande_ViewController implements Initializable {
          id_depot.clear();
         emiteur.clear();
                 liste_commandes.getItems().setAll(new Service_commande().afficher());
-            
+            new Service_commande().imprimer(c);
             }
           
     }
@@ -165,6 +177,10 @@ public class Commande_ViewController implements Initializable {
             try {
                 ajouter();
             } catch (AWTException ex) {
+                Logger.getLogger(Commande_ViewController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Commande_ViewController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (DocumentException ex) {
                 Logger.getLogger(Commande_ViewController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -206,5 +222,90 @@ public class Commande_ViewController implements Initializable {
     private void reset(ActionEvent event) {
         liste_commandes.getItems().setAll(new Service_commande().afficher());
     }
+    
+    @FXML
+    public void imprimer() throws BadElementException, IOException, DocumentException{
+        commande c =liste_commandes.getSelectionModel().getSelectedItem();
+        //Service_commande sc = new Service_commande();
+        
+        
+        
+        //File folder1 = new File("documents"); 
+        File folder = new File("documents"); 
+        if(!folder.exists()){
+            folder.mkdir();
+        }
+        String nom_fichier = "documents/info.pdf"; 
+        
+       
+        
+        File imgUser = new File("images/user.jpg");
+        //File imgUser = new File("images/user.jpg"); 
+        String chemin = imgUser.getAbsolutePath(); 
+        
+        
+        LineSeparator ls = new LineSeparator(); 
+        ls.setLineColor(BaseColor.YELLOW);
+        
+        Image image = null; 
+         
+        Document document = new Document(); 
+        
+   
+        
+       
+            
+            PdfWriter.getInstance(document, new FileOutputStream(nom_fichier));
+            document.open(); 
+            document.addTitle("Info"); 
+            document.addAuthor("author"); 
+            Paragraph preface = new Paragraph(); 
+            Paragraph titre = new Paragraph("Info");
+           
+            
+            preface.add(titre);
+            preface.add(new Paragraph("Description of user : "));
+            preface.add(new Paragraph(c.getId_commande()));
+            preface.add(new Paragraph(c.getId_depot()));
+            
+            preface.add(new Paragraph(c.getStatut()));
+           
+            preface.add(new Paragraph(c.getEmiteur()));
+            preface.add(new Paragraph(c.getType()));
+            
+            document.add(preface); 
+
+            document.close(); 
+            
+          
+            
+            int valid = JOptionPane.showOptionDialog(
+                null, 
+                new Object[]{
+                    "Voulez vous directement ouvrir le fichier ?",
+                        
+                        "Cliquez OUI pour ouvrir ou NON pour annuler",
+                },
+                "ouverture du fichier"+nom_fichier, 
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE, 
+                null, null, "OK"
+               
+            );
+            if(valid == JOptionPane.OK_OPTION){
+                File ouvrir = new File(nom_fichier); 
+                Desktop desk = Desktop.getDesktop();
+                desk.open(ouvrir);
+            }
+           
+        }  
+        
+        
+
+        
+        
+    
+        
+    
     
 }
