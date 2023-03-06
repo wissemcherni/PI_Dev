@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StatannController">
+   <children>
+      <PieChart fx:id="PieChart" layoutX="42.0" layoutY="7.0" title="PieChart" />
+      <Button fx:id="retourbienvenue" layoutX="553.0" layoutY="25.0" mnemonicParsing="false" onAction="#retourbienvenue" text="X" />
+   </children>
+</AnchorPane>
